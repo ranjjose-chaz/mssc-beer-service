@@ -2,6 +2,7 @@ package guru.springframework.msscbeerservice.web.controller;
 
 import guru.springframework.msscbeerservice.service.BeerService;
 import guru.springframework.msscbeerservice.web.model.BeerDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.actuate.health.HttpCodeStatusMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,17 +12,14 @@ import java.util.UUID;
 
 @RequestMapping("/api/v1/beer")
 @RestController
+@Slf4j
 public class BeerController {
-
-    private final BeerService beerService;
-
-    public BeerController(BeerService beerService) {
-        this.beerService = beerService;
-    }
 
     @GetMapping("/{beerId}")
     public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId")UUID beerId){
         //todo impl
+        log.debug(" ***************************  Get Beer for the Id -> " +beerId);
+        System.out.println(" ***************************  Get Beer for the Id -> " +beerId);
         return new ResponseEntity<>(BeerDto.builder().build(), HttpStatus.OK);
 
     }
@@ -29,6 +27,7 @@ public class BeerController {
     @PostMapping
     public ResponseEntity saveNewBeer(@RequestBody BeerDto beerDto){
         //todo impl
+        System.out.println(" **********************  All Okay! *****************");
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
