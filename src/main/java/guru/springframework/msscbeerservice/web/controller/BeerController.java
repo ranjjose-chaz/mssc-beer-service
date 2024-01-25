@@ -27,7 +27,6 @@ public class BeerController {
     @PostMapping
     public ResponseEntity saveNewBeer(@RequestBody BeerDto beerDto){
         //todo impl
-        System.out.println(" **********************  All Okay! *****************");
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
